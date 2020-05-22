@@ -471,19 +471,30 @@ public class PlayScreenActivity extends AppCompatActivity {
     }
 
     public int getNextIndexToBeClicked(List<Integer> remainingIndices) {
-        int nextIndex;
+        int nextIndex = NEGATIVE_ONE;
 
-        // Priority 1 - Occupy favorable indexes
-        nextIndex = singlePlayerAlgorithm(TWO, remainingIndices);
+        // If Center index is available, occupy it first. If not, occupy the first corner
+        if (playerTwoTurnCount == 0) {
+            if (remainingIndices.contains(4)) {
+                nextIndex = 4;
+            } else {
+                nextIndex = 0;
+            }
+        }
 
-        // Priority 2 - Block User Win by occupying 3rd same index
+        // Occupy favorable indexes
+        if (NEGATIVE_ONE == nextIndex) {
+            nextIndex = singlePlayerAlgorithm(TWO, remainingIndices);
+        }
+
+        // Block User Win by occupying 3rd same index
         if (NEGATIVE_ONE == nextIndex) {
             nextIndex = singlePlayerAlgorithm(ONE, remainingIndices);
         }
 
-        // Priority 3 - Occupy the center index
+        // If no match found, click random index
         if (NEGATIVE_ONE == nextIndex) {
-            nextIndex = (remainingIndices.contains(4) ? 4 : remainingIndices.get(new Random().nextInt(remainingIndices.size())));
+            nextIndex = remainingIndices.get(new Random().nextInt(remainingIndices.size()));
         }
 
         return nextIndex;
