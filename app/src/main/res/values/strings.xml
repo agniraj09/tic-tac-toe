@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">tic-tac-toe</string>
+    <string name="single_player">Single Player</string>
+    <string name="double_player">Two Players</string>
+
+    <string name="name">Name</string>
+    <string name="rounds">Rounds</string>
+    <string name="five">5</string>
+    <string name="ten">10</string>
+    <string name="fifteen">15</string>
+    <string name="twenty">20</string>
+    <string name="pattern">Board Pattern</string>
+    <string name="color">Color</string>
+    <string name="coin">Coin</string>
+    <string name="mode">Mode</string>
+    <string name="easy_mode">Easy</string>
+    <string name="medium_mode">Medium</string>
+    <string name="difficult_mode">Difficult</string>
+    <string name="start">Start</string>
+    <string name="exit_game_message">Are you sure want to exit the game ? Your progress will not be saved.</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="round">Round 1</string>
+    <string name="player_1">Player 1</string>
+    <string name="player_2">Player 2</string>
+    <string name="player_1_score">0</string>
+    <string name="player_2_score">0</string>
+    <string name="ad_unit_id">ca-app-pub-4587610802196055/3765109444</string>
+   <!-- <string name="ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
+
+    <string name="from_arc">ARC</string>
+    <string name="arc">Designed with ♥ by ARC</string>
+
+</resources>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg2"
+    android:fitsSystemWindows="true"
+    tools:context=".activities.ConfigScreenActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            card_view:cardCornerRadius="10dp"
+            card_view:cardElevation="10dp"
+            card_view:cardPreventCornerOverlap="true"
+            card_view:cardUseCompatPadding="true"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/names"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/name"
+                    android:textColor="@color/label_color"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:id="@+id/names_input"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/player_1_name_input"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:inputType="textPersonName"
+                        android:maxEms="10"
+                        android:maxLength="10"
+                        android:text="@string/player_1"
+                        app:backgroundTint="@color/radio_button_color"
+                        android:textAlignment="center" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/player_2_name_input"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:inputType="textPersonName"
+                        android:maxEms="10"
+                        android:maxLength="10"
+                        android:text="@string/player_2"
+                        app:backgroundTint="@color/radio_button_color"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/rounds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/rounds"
+                    android:textColor="@color/label_color"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/rounds_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/five"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:checked="true"
+                        app:buttonTint="@color/radio_button_color"
+                        android:text="@string/five" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/ten"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        app:buttonTint="@color/radio_button_color"
+                        android:text="@string/ten" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/fifteen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        app:buttonTint="@color/radio_button_color"
+                        android:text="@string/fifteen" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/twenty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        app:buttonTint="@color/radio_button_color"
+                        android:text="@string/twenty" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/pattern"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/pattern"
+                    android:textColor="@color/label_color"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/pattern_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/coin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        app:buttonTint="@color/radio_button_color"
+                        android:text="@string/coin" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        app:buttonTint="@color/radio_button_color"
+                        android:text="@string/color" />
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/mode_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/mode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/mode"
+                        android:textColor="@color/label_color"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/mode_input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/easy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            app:buttonTint="@color/radio_button_color"
+                            android:text="@string/easy_mode" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginStart="10dp"
+                            app:buttonTint="@color/radio_button_color"
+                            android:text="@string/medium_mode" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/impossible"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginStart="10dp"
+                            app:buttonTint="@color/radio_button_color"
+                            android:text="@string/difficult_mode" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:onClick="startGame"
+                    android:background="@color/radio_button_color"
+                    android:textColor="@color/white"
+                    android:text="@string/start" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cs_adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="30dp"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/ad_unit_id" />
+</RelativeLayout>
