@@ -300,10 +300,8 @@ public class PlayScreenActivity extends AppCompatActivity {
             roundWinSound.start();
         }
 
-        for (int fillIndex = 0; fillIndex <= 8; fillIndex++) {
-            if (winner == selectedValues[fillIndex]) {
-                cells.get(fillIndex).setBackgroundResource(cellToBeHighlightedWith);
-            }
+        for (int fillIndex : matchedCells(winner)) {
+            cells.get(fillIndex).setBackgroundResource(cellToBeHighlightedWith);
         }
     }
 
@@ -470,6 +468,29 @@ public class PlayScreenActivity extends AppCompatActivity {
                 || (playerKey == selectedValues[2] && playerKey == selectedValues[4] && playerKey == selectedValues[6]));
     }
 
+    public List<Integer> matchedCells(int playerKey) {
+        List<Integer> matchCells = new ArrayList<>();
+
+        if (playerKey == selectedValues[0] && playerKey == selectedValues[1] && playerKey == selectedValues[2]) {
+            matchCells.addAll(Arrays.asList(0, 1, 2));
+        } else if (playerKey == selectedValues[3] && playerKey == selectedValues[4] && playerKey == selectedValues[5]) {
+            matchCells.addAll(Arrays.asList(3, 4, 5));
+        } else if (playerKey == selectedValues[6] && playerKey == selectedValues[7] && playerKey == selectedValues[8]) {
+            matchCells.addAll(Arrays.asList(6, 7, 8));
+        } else if (playerKey == selectedValues[0] && playerKey == selectedValues[3] && playerKey == selectedValues[6]) {
+            matchCells.addAll(Arrays.asList(0, 3, 6));
+        } else if (playerKey == selectedValues[1] && playerKey == selectedValues[4] && playerKey == selectedValues[7]) {
+            matchCells.addAll(Arrays.asList(1, 4, 7));
+        } else if (playerKey == selectedValues[2] && playerKey == selectedValues[5] && playerKey == selectedValues[8]) {
+            matchCells.addAll(Arrays.asList(2, 5, 8));
+        } else if (playerKey == selectedValues[0] && playerKey == selectedValues[4] && playerKey == selectedValues[8]) {
+            matchCells.addAll(Arrays.asList(0, 4, 8));
+        } else if (playerKey == selectedValues[2] && playerKey == selectedValues[4] && playerKey == selectedValues[6]) {
+            matchCells.addAll(Arrays.asList(2, 4, 6));
+        }
+        return matchCells;
+    }
+
     public int getNextIndexToBeClicked(List<Integer> remainingIndices) {
         int nextIndex = NEGATIVE_ONE;
 
@@ -595,6 +616,7 @@ public class PlayScreenActivity extends AppCompatActivity {
     }
 
     public void restartGame(View view) {
+        openSettings(view);
         resetAllValues();
         playerOneWinCount = 0;
         playerTwoWinCount = 0;

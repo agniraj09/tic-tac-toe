@@ -1,58 +1,65 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:animateLayoutChanges="true"
-    android:fitsSystemWindows="true"
     android:background="@drawable/bg2"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context="com.arc.agni.tictactoe.activities.PlayScreenActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/settings_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        android:id="@+id/settings_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/settings"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
-            android:onClick="openSettings"
-            android:background="@drawable/ic_settings"/>
+            android:background="@drawable/ic_settings"
+            android:onClick="openSettings" />
 
         <TextView
             android:id="@+id/music"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
+            android:background="@drawable/ic_music_on"
             android:onClick="muteAndUnmuteSound"
-            android:visibility="gone"
-            android:background="@drawable/ic_music_on"/>
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/restart"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
+            android:background="@drawable/ic_reset_game"
             android:onClick="restartGame"
-            android:visibility="gone"
-            android:background="@drawable/ic_reset_game"/>
-        </LinearLayout>
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        card_view:layout_constraintBottom_toTopOf="@+id/ps_adView"
+        card_view:layout_constraintTop_toBottomOf="@+id/settings_layout"
+        tools:layout_editor_absoluteX="0dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/round_card"
@@ -68,14 +75,14 @@
             <TextView
                 android:id="@+id/round_text"
                 android:layout_width="match_parent"
-                android:background="@color/red"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
                 android:layout_height="match_parent"
+                android:background="@color/red"
                 android:gravity="center"
                 android:text="@string/round"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -88,55 +95,55 @@
             card_view:cardPreventCornerOverlap="true"
             card_view:cardUseCompatPadding="true">
 
-        <LinearLayout
+            <LinearLayout
                 android:id="@+id/play_card"
                 android:layout_width="300dp"
                 android:layout_height="300dp"
-                android:gravity="center"
-                android:background="@color/transparent"
                 android:layout_gravity="center_horizontal"
+                android:background="@color/transparent"
+                android:gravity="center"
                 android:orientation="vertical"
                 android:weightSum="3">
 
-            <LinearLayout
-                android:id="@+id/game_win_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:weightSum="3"
-                android:background="@android:color/transparent"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/game_win_message"
+                <LinearLayout
+                    android:id="@+id/game_win_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.6"
+                    android:layout_height="match_parent"
                     android:background="@android:color/transparent"
-                    android:gravity="center"
-                    android:text="@string/player_2"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="25sp" />
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:weightSum="3">
 
-                <pl.droidsonroids.gif.GifImageView
-                    android:id="@+id/dance_gif"
-                    android:layout_width="match_parent"
-                    android:layout_margin="5dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/group_dance" />
+                    <TextView
+                        android:id="@+id/game_win_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1.6"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:text="@string/player_2"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
 
-                <ImageView
-                    android:id="@+id/go_to_home"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.4"
-                    android:layout_gravity="center_horizontal"
-                    android:onClick="goToHome"
-                    android:src="@drawable/ic_action_home" />
+                    <pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/dance_gif"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/group_dance" />
 
-            </LinearLayout>
+                    <ImageView
+                        android:id="@+id/go_to_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="0.4"
+                        android:onClick="goToHome"
+                        android:src="@drawable/ic_action_home" />
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/row1"
@@ -144,37 +151,37 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@color/transparent"
+                    android:baselineAligned="false"
                     android:orientation="horizontal"
-                    android:weightSum="3"
-                    android:baselineAligned="false">
+                    android:weightSum="3">
 
                     <LinearLayout
                         android:id="@+id/index0"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:onClick="onClickIndex0"
                         android:background="@drawable/ic_plain_layout"
-                        android:orientation="horizontal"
                         android:clickable="true"
-                        android:focusable="true"/>
+                        android:focusable="true"
+                        android:onClick="onClickIndex0"
+                        android:orientation="horizontal" />
 
                     <LinearLayout
                         android:id="@+id/index1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:onClick="onClickIndex1"
                         android:background="@drawable/ic_plain_layout"
+                        android:onClick="onClickIndex1"
                         android:orientation="horizontal" />
 
                     <LinearLayout
                         android:id="@+id/index2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:onClick="onClickIndex2"
                         android:layout_weight="1"
                         android:background="@drawable/ic_plain_layout"
+                        android:onClick="onClickIndex2"
                         android:orientation="horizontal" />
                 </LinearLayout>
 
@@ -183,17 +190,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:baselineAligned="false"
                     android:orientation="horizontal"
-                    android:weightSum="3"
-                    android:baselineAligned="false">
+                    android:weightSum="3">
 
                     <LinearLayout
                         android:id="@+id/index3"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:onClick="onClickIndex3"
                         android:background="@drawable/ic_plain_layout"
+                        android:onClick="onClickIndex3"
                         android:orientation="horizontal" />
 
                     <LinearLayout
@@ -201,8 +208,8 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:onClick="onClickIndex4"
                         android:background="@drawable/ic_plain_layout"
+                        android:onClick="onClickIndex4"
                         android:orientation="horizontal" />
 
                     <LinearLayout
@@ -210,8 +217,8 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:onClick="onClickIndex5"
                         android:background="@drawable/ic_plain_layout"
+                        android:onClick="onClickIndex5"
                         android:orientation="horizontal" />
                 </LinearLayout>
 
@@ -220,17 +227,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:baselineAligned="false"
                     android:orientation="horizontal"
-                    android:weightSum="3"
-                    android:baselineAligned="false">
+                    android:weightSum="3">
 
                     <LinearLayout
                         android:id="@+id/index6"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:onClick="onClickIndex6"
                         android:background="@drawable/ic_plain_layout"
+                        android:onClick="onClickIndex6"
                         android:orientation="horizontal" />
 
                     <LinearLayout
@@ -238,8 +245,8 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:onClick="onClickIndex7"
                         android:background="@drawable/ic_plain_layout"
+                        android:onClick="onClickIndex7"
                         android:orientation="horizontal" />
 
                     <LinearLayout
@@ -247,8 +254,8 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:onClick="onClickIndex8"
                         android:background="@drawable/ic_plain_layout"
+                        android:onClick="onClickIndex8"
                         android:orientation="horizontal" />
                 </LinearLayout>
             </LinearLayout>
@@ -274,31 +281,31 @@
                     android:id="@+id/round_win_message"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/gray_outline"
+                    android:gravity="center"
+                    android:text="@string/player_1"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    android:background="@color/gray_outline"
-                    android:visibility="gone"
-                    android:gravity="center"
-                    android:text="@string/player_1"
-                    android:textAlignment="center" />
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/player_tiles"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:baselineAligned="false"
                 android:orientation="horizontal"
-                android:weightSum="2"
-                android:baselineAligned="false">
+                android:weightSum="2">
 
                 <LinearLayout
                     android:id="@+id/player_1_details"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:background="@color/blue"
+                    android:orientation="vertical"
                     android:weightSum="2.5">
 
                     <TextView
@@ -306,24 +313,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
                         android:gravity="center"
                         android:text="@string/player_1"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/player_1_score"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:textColor="@color/white"
                         android:layout_weight="1.5"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
                         android:gravity="center"
                         android:text="@string/player_1_score"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -341,24 +348,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
                         android:gravity="center"
                         android:text="@string/player_2"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/player_2_score"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1.5"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
                         android:gravity="center"
                         android:text="@string/player_2_score"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -367,12 +374,15 @@
 
     </LinearLayout>
 
-    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+    <com.google.android.gms.ads.AdView
         android:id="@+id/ps_adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/ad_unit_id" />
+        card_view:adSize="SMART_BANNER"
+        card_view:adUnitId="@string/ad_unit_id"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
